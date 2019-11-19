@@ -1,0 +1,6 @@
+.test-box {
+  --bg: violet;
+
+  background-color: var(--bg);
+  border-radius: 0.45rem;
+}
