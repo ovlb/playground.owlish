@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Labelled Sections test</title>
+  </head>
+  <body>
+    <h1>Labelled Sections</h1>
+    <section>
+      <h2>Headline without link to section</h2>
+      <p>This is just a section with a headline and content.</p>
+    </section>
+    <section aria-label="ARIA label">
+      <h2>ARIA Label section</h2>
+      <p>This section uses <code>aria-label</code> to name the section.</p>
+      <p>
+        Adding <code>aria-label</code> exposes this section to assistive
+        technology. But beware <code>aria-label</code> can not be
+        auto-translated.
+      </p>
+    </section>
+    <section aria-labelledby="section-headline">
+      <h2 id="section-headline">Labelled by section</h2>
+      <p>
+        This section uses <code>aria-labelledby</code> to link the headline to
+        the section
+      </p>
+    </section>
+  </body>
+</html>
