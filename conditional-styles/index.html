@@ -1,31 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link
+      rel="stylesheet"
+      media="(-ms-high-contrast: none)"
+      href="css/ie.css"
+    />
+    <link
+      rel="stylesheet"
+      media="(pointer: fine), (pointer: coarse), (pointer: none)"
+      href="css/modern.css"
+    />
+    <title>Conditionally Load Styles</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" media="(-ms-high-contrast: none)" href="css/ie.css">
-  <link rel="stylesheet" media="(pointer: fine), (pointer: coarse), (pointer: none)" href="css/modern.css">
-  <title>Conditionally Load Styles</title>
-</head>
-
-<body>
-  <small><a href="/">Back home</a></small>
-  <h1>Conditionally Load Styles</h1>
-  <p>This an experiment to load untranspiled styles in modern browsers, but transpiled ones in old ones.</p>
-  <p>We can use <code>-ms-high-contrast</code> to target browsers running on Windows. Theoretically, this would also
-    target Edge. Luckily, <code>-ms-high-contrast: none</code> is not supported in Edge anymore.</p>
-  <p>The other way round, any well-supported <a href="https://drafts.csswg.org/mediaqueries-4/">Media Queries Level
-      4</a> value will never be supported in IE11.</p>
-  <p>This means we can use <code>(pointer: fine), (pointer: coarse), (pointer: none)</code> to target new browsers.</p>
-  <h2>Demo</h2>
-  <p>The following box will be blue and have a <code>border-radius</code> of <code>0</code> if your
-    browser supports <code>-ms-high-contrast: none</code>.</p>
-  <p>If your browser supports the <code>pointer</code> media query, it will be <code>violet</code> and have a rounded
-    corner.</p>
-  <div class="test-box"></div>
-</body>
-
+  <body>
+    <nav>
+      <small><a href="/">Back home</a></small>
+    </nav>
+    <h1>Conditionally Load Styles</h1>
+    <p>
+      This an experiment to load untranspiled styles in modern browsers, but
+      transpiled ones in old ones.
+    </p>
+    <p>
+      We can use <code>-ms-high-contrast</code> to target browsers running on
+      Windows. Theoretically, this would also target Edge. Luckily,
+      <code>-ms-high-contrast: none</code> is not supported in Edge anymore.
+    </p>
+    <p>
+      The other way round, any well-supported
+      <a href="https://drafts.csswg.org/mediaqueries-4/"
+        >Media Queries Level 4</a
+      >
+      value will never be supported in IE11.
+    </p>
+    <p>
+      This means we can use
+      <code>(pointer: fine), (pointer: coarse), (pointer: none)</code> to target
+      new browsers.
+    </p>
+    <h2>Demo</h2>
+    <p>
+      The following box will be blue and have a <code>border-radius</code> of
+      <code>0</code> if your browser supports
+      <code>-ms-high-contrast: none</code>.
+    </p>
+    <p>
+      If your browser supports the <code>pointer</code> media query, it will be
+      <code>violet</code> and have a rounded corner.
+    </p>
+    <div class="test-box"></div>
+  </body>
 </html>
