@@ -25,12 +25,24 @@
       <h2 id="section-headline">Labelled by section</h2>
       <p>
         This section uses <code>aria-labelledby</code> to link the headline to
-        the section
+        the section.
       </p>
       <p>
         Using <code>aria-labelledby</code> exposes the name of the section to
         assistive technology.
       </p>
     </section>
+    <div role="region" aria-labelledby="div-headline">
+      <h2 id="div-headline">Div with role region</h2>
+      <p>
+        This uses uses <code>role="region"</code> and
+        <code>aria-labelledby</code> to link the headline to the
+        <code>div</code>.
+      </p>
+      <!-- <p>
+        Using <code>aria-labelledby</code> exposes the name of the section to
+        assistive technology.
+      </p> -->
+    </div>
   </body>
 </html>
