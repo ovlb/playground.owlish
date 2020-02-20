@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Inclusive Inputs</title>
+    <style>
+      .sr-only {
+        clip-path: inset(100%);
+        clip: rect(0 0 0 0);
+        height: 1px;
+        overflow: hidden;
+        position: absolute;
+        white-space: nowrap;
+        width: 1px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav>
+      <small><a href="/">Back home</a></small>
+    </nav>
+    <h1>Inclusive Inputs</h1>
+    <p>
+      This is a companion page for the article
+      <a href="https://www.ovl.design/text/inclusive-inputs/"
+        >Inclusive Inputs</a
+      >
+      demoing different states of inputs. Poke around the different inputs with
+      your favourite Accessibility Dev Tools and Screen Reader to discover them.
+    </p>
+    <section>
+      <h2>No association</h2>
+      <p>
+        Please do not use this. Input and Label are not associated and as such
+        the Input has no accessible name.
+      </p>
+      <form action="">
+        <div class="form-group">
+          <label>
+            Name
+            <span class="required">*</span>
+          </label>
+          <input type="text" />
+        </div>
+      </form>
+    </section>
+    <section>
+      <h2>Explicit association</h2>
+      <p>
+        Input and Label are not associated by adding the ID of the Input as the
+        value of the label’s <code>for</code> attribute.
+      </p>
+      <form action="">
+        <div class="form-group">
+          <label for="text">
+            Name
+            <span class="required">*</span>
+          </label>
+          <input type="text" id="text" />
+        </div>
+      </form>
+    </section>
+    <section>
+      <h2>Marking as required</h2>
+      <p>
+        The label has invisible test inside of it to enhance the meaning of it.
+        The * is hidden with <code>aria-hidden</code>.
+      </p>
+      <form action="">
+        <div class="form-group">
+          <label for="text_required">
+            Name
+            <span class="required" aria-hidden="true">*</span>
+            <span class="sr-only">required</span>
+          </label>
+          <input type="text" id="text_required" />
+        </div>
+      </form>
+    </section>
+    <section>
+      <h2>Not linked description</h2>
+      <p>
+        In this example the description isn’t associated with the input.
+      </p>
+      <form action="">
+        <div class="form-group">
+          <label for="password_no_desc">
+            Password
+            <span class="required" aria-hidden="true">*</span>
+            <span class="sr-only">required</span>
+          </label>
+          <input type="password" id="password_no_desc" name="password" />
+          <p class="aside">
+            Your password needs to have at least eight characters.
+          </p>
+        </div>
+      </form>
+    </section>
+    <section>
+      <h2>Linked description</h2>
+      <p>
+        By adding <code>aria-describedby</code> the descriptive text will be
+        announced by screen readers.
+      </p>
+      <form action="">
+        <div class="form-group">
+          <label for="password_desc">
+            Password
+            <span class="required" aria-hidden="true">*</span>
+            <span class="sr-only">required</span>
+          </label>
+          <input
+            type="password"
+            id="password_desc"
+            name="password"
+            aria-describedby="only_desc_pw"
+          />
+          <p class="aside" id="only_desc_pw">
+            Your password needs to have at least eight characters.
+          </p>
+        </div>
+      </form>
+    </section>
+    <section>
+      <h2>Description & Error Message</h2>
+      <p>
+        The following input uses <code>aria-describedby</code> to link both the
+        error message and the descriptive text.
+      </p>
+      <form action="">
+        <div class="form-group">
+          <label for="password_desc_error">
+            Password
+            <span class="required" aria-hidden="true">*</span>
+            <span class="sr-only">required</span>
+          </label>
+          <input
+            type="password"
+            id="password_desc_error"
+            name="password"
+            aria-describedby="error_pw desc_pw"
+          />
+          <p class="aside" id="desc_pw">
+            Your password needs to have at least eight characters.
+          </p>
+          <p class="error" id="error_pw">Please check your input.</p>
+        </div>
+      </form>
+    </section>
+    <section>
+      <h2>Description & Error Message & ARIA Invalid</h2>
+      <p>
+        This input also uses <code>aria-invalid</code> to communicate that it is
+        invalid.
+      </p>
+      <form action="">
+        <div class="form-group">
+          <label for="password_invalid">
+            Password
+            <span class="required" aria-hidden="true">*</span>
+            <span class="sr-only">required</span>
+          </label>
+          <input
+            type="password"
+            id="password_invalid"
+            name="password"
+            aria-describedby="error_invalid_pw desc_invalid_pw"
+            aria-invalid="true"
+          />
+          <p class="aside" id="desc_invalid_pw">
+            Your password needs to have at least eight characters.
+          </p>
+          <p class="error" id="error_invalid_pw">Please check your input.</p>
+        </div>
+      </form>
+    </section>
+  </body>
+</html>
